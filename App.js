@@ -1,35 +1,24 @@
 import 'react-native-gesture-handler';
-
-import * as React from 'react';
-import {View, Text, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import * as React from 'react';
+import Signin from './component/signin';
 import Home from './component/Home';
-import Detail from './component/Detail';
 
 
-const Stack = createStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
+const Stack = createStackNavigator()
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{
-          title: 'My home',
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            
-          },
-        }}  />
-        <Stack.Screen name="Detail" component= {Detail}
-        options={{headerShown : false }} />
+        <Stack.Screen name = 'Signin' component = {Signin} options = {{headerShown : false}} />
+        <Stack.Screen name = 'Home' component = {Home}  />
       </Stack.Navigator>
-    </NavigationContainer>
-  );
+      </NavigationContainer>
+      
+      
+      
+    );
+  }
 }
-
-export default App;
